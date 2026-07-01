@@ -1,0 +1,13 @@
+database
+	compatibilityLevel: 1567
+
+ref table sales_fact
+ref table dim_date
+ref table fact_daily
+ref table fact_monthly
+ref table fact_category
+ref table fact_product
+ref table fact_region
+ref table fact_region_growth
+ref table forecast_vs_actual
+ref table model_comparison

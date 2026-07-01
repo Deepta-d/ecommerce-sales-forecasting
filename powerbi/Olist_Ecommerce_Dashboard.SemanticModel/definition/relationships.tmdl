@@ -1,0 +1,19 @@
+relationship rel_1
+	fromColumn: sales_fact.order_date
+	toColumn: dim_date.date
+	crossFilteringBehavior: oneDirection
+
+relationship rel_2
+	fromColumn: fact_daily.date
+	toColumn: dim_date.date
+	crossFilteringBehavior: oneDirection
+
+relationship rel_3
+	fromColumn: fact_monthly.month_start
+	toColumn: dim_date.date
+	crossFilteringBehavior: oneDirection
+
+relationship rel_4
+	fromColumn: forecast_vs_actual.date
+	toColumn: dim_date.date
+	crossFilteringBehavior: oneDirection

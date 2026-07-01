@@ -1,0 +1,166 @@
+{
+  "name": "Olist Futuristic",
+  "dataColors": [
+    "#00E5FF",
+    "#7B61FF",
+    "#FF00E5",
+    "#00FFA3",
+    "#FFB800",
+    "#FF6B6B",
+    "#4ECDC4",
+    "#A78BFA"
+  ],
+  "foreground": "#E8ECF4",
+  "foregroundNeutralSecondary": "#A0AEC0",
+  "foregroundNeutralTertiary": "#6B7280",
+  "background": "#0B1026",
+  "backgroundLight": "#1A1F3A",
+  "backgroundNeutral": "#12172E",
+  "tableAccent": "#00E5FF",
+  "good": "#00FFA3",
+  "neutral": "#FFB800",
+  "bad": "#FF6B6B",
+  "maximum": "#00E5FF",
+  "minimum": "#FF00E5",
+  "center": "#7B61FF",
+  "textClasses": {
+    "callout": {
+      "fontSize": 32,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#FFFFFF"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#E8ECF4"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI",
+      "color": "#A0AEC0"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#A0AEC0"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#1A1F3A" } },
+            "transparency": 15
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#2A3050" } },
+            "radius": 8
+          }
+        ],
+        "title": [
+          {
+            "fontColor": { "solid": { "color": "#E8ECF4" } },
+            "background": { "solid": { "color": "#1A1F3A" } }
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#000000" } },
+            "position": "Outer",
+            "preset": "BottomRight",
+            "transparency": 70,
+            "shadowSpread": 2,
+            "shadowBlur": 8
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "fontSize": 28
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": { "solid": { "color": "#00E5FF" } },
+            "fontSize": 11
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#12172E" } }
+          }
+        ],
+        "items": [
+          {
+            "fontColor": { "solid": { "color": "#E8ECF4" } },
+            "background": { "solid": { "color": "#1A1F3A" } }
+          }
+        ],
+        "header": [
+          {
+            "fontColor": { "solid": { "color": "#00E5FF" } }
+          }
+        ]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [
+          {
+            "strokeWidth": 3
+          }
+        ],
+        "categoryAxis": [
+          {
+            "gridlineShow": false,
+            "labelColor": { "solid": { "color": "#A0AEC0" } }
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": { "solid": { "color": "#2A3050" } },
+            "labelColor": { "solid": { "color": "#A0AEC0" } }
+          }
+        ]
+      }
+    },
+    "columnChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "gridlineShow": false
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": { "solid": { "color": "#2A3050" } }
+          }
+        ]
+      }
+    },
+    "map": {
+      "*": {
+        "mapStyles": [
+          {
+            "mapTheme": "grayscale"
+          }
+        ]
+      }
+    }
+  }
+}

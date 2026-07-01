@@ -1,0 +1,71 @@
+// Phase 4 — paste into Power BI Desktop: Modeling → New measure
+// Table: _Metrics (create empty table named _Metrics first, or use sales_fact)
+
+Total Revenue = SUM ( sales_fact[total_revenue] )
+
+Total Orders = DISTINCTCOUNT ( sales_fact[order_id] )
+
+Average Order Value = DIVIDE ( [Total Revenue], [Total Orders] )
+
+Total Items = COUNTROWS ( sales_fact )
+
+// Month-over-month growth using fact_monthly (Executive KPI)
+Monthly Revenue Selected = SUM ( fact_monthly[revenue] )
+
+Prior Month Revenue =
+    CALCULATE (
+        SUM ( fact_monthly[revenue] ),
+        DATEADD ( dim_date[date], -1, MONTH )
+    )
+
+Revenue Growth % =
+    VAR current_rev = [Monthly Revenue Selected]
+    VAR prior_rev = [Prior Month Revenue]
+    RETURN
+        IF (
+            ISBLANK ( prior_rev ) || prior_rev = 0,
+            BLANK (),
+            DIVIDE ( current_rev - prior_rev, prior_rev )
+        )
+
+// Forecast accuracy (Sales Trends page)
+Forecast Error % =
+    AVERAGEX (
+        forecast_vs_actual,
+        IF (
+            forecast_vs_actual[actual] <> 0,
+            ABS ( forecast_vs_actual[actual] - forecast_vs_actual[forecast] )
+                / forecast_vs_actual[actual],
+            BLANK ()
+        )
+    )
+
+Forecast MAPE % = [Forecast Error %] * 100
+
+// Category context
+Top Category Revenue =
+    CALCULATE (
+        [Total Revenue],
+        TOPN ( 10, ALL ( fact_category[product_category] ), fact_category[revenue] )
+    )
+
+Category Revenue Share % =
+    DIVIDE (
+        [Total Revenue],
+        CALCULATE ( [Total Revenue], ALL ( sales_fact[product_category] ) )
+    )
+
+// Regional
+State Revenue = SUM ( fact_region[revenue] )
+
+State Orders = SUM ( fact_region[orders] )
+
+Avg MoM Growth % = AVERAGE ( fact_region_growth[mom_growth_pct] )
+
+// Date hierarchy helpers (use dim_date on visuals)
+YTD Revenue =
+    TOTALYTD ( [Total Revenue], dim_date[date] )
+
+Daily Revenue = SUM ( fact_daily[revenue] )
+
+Monthly Revenue = SUM ( fact_monthly[revenue] )
