@@ -1,5 +1,22 @@
 # E-Commerce Sales Forecasting & Intelligent Reporting
 
+**Business question:** How much revenue should an online marketplace expect over the next 30 to 90 days, and what patterns in customers, regions and seasons should shape inventory, marketing and expansion plans?
+
+**What I built:** An end-to-end analytics and forecasting pipeline on ~96,000 delivered orders from the Olist Brazilian e-commerce marketplace: a MySQL data model, Python analysis, three forecasting approaches (SARIMA, Prophet/Holt-Winters, LSTM), a four-page Power BI dashboard, and a daily pipeline that flags unusual revenue spikes and drops.
+
+### Key findings
+
+- **Reliable short-term forecasts:** The best model (LSTM) predicted daily revenue within **17.6%** on average over the next 30 days and **23.7%** over 60 days, beating the classical models at both horizons.
+- **Revenue is concentrated in one region:** São Paulo state alone generated about **R$ 5.77M of R$ 15.4M (37%)** in total revenue, pointing to expansion opportunities in under-served states.
+- **Customers rarely come back:** Only **3%** of customers placed a repeat order, so retention programs could significantly lift lifetime value.
+- **Promotions drive the biggest swings:** The peak month was November 2017 (**R$ 1.15M**, driven by Black Friday). Spikes like this cause the largest forecast errors, so the recommended next step is adding a promotion flag to the models.
+
+**Tech stack:** MySQL, Python (pandas, statsmodels, Prophet, TensorFlow/LSTM), Power BI (DAX)
+
+Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPORT.md)
+
+---
+
 Phase 1 (SQL) and Phase 2 (Python EDA) implementation using the Olist Brazilian E-Commerce dataset.
 
 ## Quick Start
